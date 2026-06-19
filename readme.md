@@ -11,7 +11,7 @@ This project implements the three industry-standard rate limiting algorithms to 
 * **Live Telemetry:** Tracks global throughput, block rates, and per-user metrics in real-time.
 * **Interactive Dashboard:** A React/Vite frontend to visually demonstrate the behavior of different limiting strategies.
 
-## 🧠 Supported Algorithms
+## 🧠 Supported Algorithms 
 
 1. **Fixed Window (`/fixed`)**
    * Divides time into rigid segments. Simple and memory-efficient, but susceptible to traffic spikes at the edges of the window boundaries.
