@@ -2,7 +2,7 @@
 
 A highly performant, asynchronous application-layer rate limiter built with **FastAPI** and **Redis**. 
 
-This project implements the three industry-standard rate limiting algorithms to protect API endpoints from abuse, manage traffic bursts, and enforce fair usage quotas. It includes a real-time React dashboard for telemetry and visualization.
+This project implements the three industry-standard rate limiting algorithms to protect API endpoints from abuse, manage traffic bursts and enforce fair usage quotas. It includes a real-time React dashboard for telemetry and visualization.
 
 ## ✨ Features
 * **Abstract Base Class Architecture:** Easily extensible design to add new rate-limiting algorithms.
@@ -57,7 +57,7 @@ async def get_data(item_id: str, user_id: str):
 * 2. Run the Backend
 
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/rate-limiter.git](https://github.com/YOUR_USERNAME/rate-limiter.git)
+    git clone https://github.com/zdityz/rate-limiter.git
     cd rate-limiter
     python3 -m venv venv
     source venv/bin/activate
