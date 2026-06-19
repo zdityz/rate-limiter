@@ -1,5 +1,15 @@
-FIXED_WINDOW = {"max_requests": 5, "window_seconds": 10}
+from pydantic_settings import BaseSettings
 
-SLIDING_WINDOW = {"max_requests": 5, "window_seconds": 10}
+class RateLimitConfig(BaseSettings):
+    fixed_max_requests: int = 5
+    fixed_window_seconds: int = 10
+    
+    sliding_max_requests: int = 5
+    sliding_window_seconds: int = 10
+    
+    token_max_tokens: int = 5
+    token_refill_rate: int = 1
+    
+    redis_url: str = "redis://localhost:6379/0"
 
-TOKEN_BUCKET = {"max_tokens": 5, "refill_rate": 1}
+config = RateLimitConfig()
