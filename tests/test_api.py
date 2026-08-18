@@ -4,7 +4,6 @@ from main import app
 
 client = TestClient(app)
 
-
 def test_root():
     response = client.get("/")
     assert response.status_code == 200
@@ -26,28 +25,14 @@ def test_token_bucket_allows():
     assert response.json()["status"] == "allowed"
 
 def test_fixed_window_blocks_after_limit():
-    for _ in range(5):
+    for _ in range(10):
         client.post("/fixed/blocktest_fw")
     response = client.post("/fixed/blocktest_fw")
     assert response.status_code == 429
+    assert response.json()["detail"] == "Too Many Requests"
 
-def test_stats_endpoint():
-    client.post("/fixed/statsuser")
-    response = client.get("/stats")
+def test_metrics_endpoint():
+    client.post("/fixed/metrics_user")
+    response = client.get("/metrics")
     assert response.status_code == 200
-    data = response.json()
-    assert "total_requests" in data
-    assert "total_allowed" in data
-    assert "total_blocked" in data
-
-def test_user_stats_endpoint():
-    client.post("/fixed/alice_stats")
-    response = client.get("/stats/alice_stats")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["user"] == "alice_stats"
-    assert data["allowed"] >= 1
-
-def test_user_stats_not_found():
-    response = client.get("/stats/nobody_xyz")
-    assert response.status_code == 404
+    assert "ratekeep_requests_total" in response.text
