@@ -1,0 +1,25 @@
+{
+  "title": "RateKeep Adaptive SDK",
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Requests Allowed vs Blocked",
+      "targets": [
+        {
+          "expr": "ratekeep_requests_total",
+          "legendFormat": "{{status}}"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Anomaly Scores by Client",
+      "targets": [
+        {
+          "expr": "ratekeep_anomaly_score",
+          "legendFormat": "{{client_id}}"
+        }
+      ]
+    }
+  ]
+}
