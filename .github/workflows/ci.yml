@@ -30,7 +30,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -e .[fastapi,flask]
-          pip install pytest pytest-asyncio httpx limits
+          pip install pytest pytest-asyncio httpx limits pydantic-settings
           
       - name: Run tests
         run: |
