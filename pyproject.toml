@@ -15,3 +15,6 @@ dependencies = [
 [project.optional-dependencies]
 fastapi = ["fastapi", "starlette"]
 flask = ["flask"]
+
+[tool.setuptools.packages.find]
+include = ["ratekeep*"]

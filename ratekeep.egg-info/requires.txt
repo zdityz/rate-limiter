@@ -1,0 +1,8 @@
+redis>=4.0.0
+
+[fastapi]
+fastapi
+starlette
+
+[flask]
+flask
